@@ -1,5 +1,3 @@
-import { vehicleStatusData } from '../../../mocks/dashboard.mock'
-
 import './VehicleStatus.css'
 
 function getStatusLabel(status) {
@@ -10,7 +8,11 @@ function getStatusLabel(status) {
   return 'En movimiento'
 }
 
-function VehicleStatus() {
+function VehicleStatus({
+  vehicles = [],
+  loading = false,
+  error = null,
+}) {
   return (
     <section className="vehicle-status">
       <div className="vehicle-status__header">
@@ -35,47 +37,60 @@ function VehicleStatus() {
           </thead>
 
           <tbody>
-            {vehicleStatusData.map((vehicle) => (
-              <tr key={vehicle.id}>
-                <td className="vehicle-status__vehicle">
-                  {vehicle.id}
-                </td>
-
-                <td>
-                  <span
-                    className={`vehicle-status__status vehicle-status__status--${vehicle.status.toLowerCase()}`}
-                  >
-                    <span className="vehicle-status__status-dot" />
-                    {getStatusLabel(vehicle.status)}
-                  </span>
-                </td>
-
-                <td>
-                  {vehicle.location}
-                </td>
-
-                <td>
-                  {vehicle.speed} km/h
-                </td>
-
-                <td>
-                  <div className="vehicle-status__battery">
-                    <div className="vehicle-status__battery-track">
-                      <div
-                        className={`vehicle-status__battery-value ${
-                          vehicle.battery <= 60
-                            ? 'vehicle-status__battery-value--low'
-                            : ''
-                        }`}
-                        style={{ width: `${vehicle.battery}%` }}
-                      />
-                    </div>
-
-                    <span>{vehicle.battery}%</span>
-                  </div>
+            {loading && (
+              <tr>
+                <td colSpan="5">
+                  Cargando vehículos...
                 </td>
               </tr>
-            ))}
+            )}
+
+            {!loading && error && (
+              <tr>
+                <td colSpan="5">
+                  No fue posible cargar los vehículos.
+                </td>
+              </tr>
+            )}
+
+            {!loading && !error && vehicles.length === 0 && (
+              <tr>
+                <td colSpan="5">
+                  No hay vehículos registrados.
+                </td>
+              </tr>
+            )}
+
+            {!loading &&
+              !error &&
+              vehicles.map((vehicle) => (
+                <tr key={vehicle.vehicleId}>
+                  <td className="vehicle-status__vehicle">
+                    {vehicle.vehicleId}
+                  </td>
+
+                  <td>
+                    <span
+                      className={`vehicle-status__status vehicle-status__status--${(vehicle.status || 'MOVING').toLowerCase()}`}
+                    >
+                      <span className="vehicle-status__status-dot" />
+                      {getStatusLabel(vehicle.status)}
+                    </span>
+                  </td>
+
+                  <td>
+                    {vehicle.latitude}, {vehicle.longitude}
+                  </td>
+
+                  <td>
+                    —
+                  </td>
+
+                  <td>
+                    —
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>

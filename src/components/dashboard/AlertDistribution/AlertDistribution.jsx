@@ -1,8 +1,46 @@
-import { alertDistributionData } from '../../../mocks/dashboard.mock'
-
 import './AlertDistribution.css'
 
-function AlertDistribution() {
+function getAlertLabel(type) {
+  switch (type) {
+    case 'VEHICLE_STOPPED':
+      return 'Vehículo detenido'
+
+    case 'SPEED':
+    case 'SPEED_EXCEEDED':
+    case 'EXCESSIVE_SPEED':
+      return 'Exceso de velocidad'
+
+    case 'ROUTE':
+    case 'OUT_OF_ROUTE':
+      return 'Fuera de ruta'
+
+    default:
+      return 'Otros'
+  }
+}
+
+function AlertDistribution({
+  alerts = [],
+}) {
+  const distributionMap = alerts.reduce(
+    (distribution, alert) => {
+      const label = getAlertLabel(alert.type)
+
+      distribution[label] =
+        (distribution[label] || 0) + 1
+
+      return distribution
+    },
+    {},
+  )
+
+  const alertDistributionData = Object.entries(
+    distributionMap,
+  ).map(([label, value]) => ({
+    label,
+    value,
+  }))
+
   const total = alertDistributionData.reduce(
     (sum, item) => sum + item.value,
     0,
@@ -13,19 +51,22 @@ function AlertDistribution() {
 
   let accumulated = 0
 
-  const segments = alertDistributionData.map((item) => {
-    const percentage = item.value / total
+  const segments = alertDistributionData.map(
+    (item) => {
+      const percentage =
+        total > 0 ? item.value / total : 0
 
-    const segment = {
-      ...item,
-      percentage,
-      offset: accumulated,
-    }
+      const segment = {
+        ...item,
+        percentage,
+        offset: accumulated,
+      }
 
-    accumulated += percentage
+      accumulated += percentage
 
-    return segment
-  })
+      return segment
+    },
+  )
 
   return (
     <section className="alert-distribution">
@@ -56,7 +97,9 @@ function AlertDistribution() {
                 stroke="currentColor"
                 strokeWidth="14"
                 strokeDasharray={`${segment.percentage * circumference} ${circumference}`}
-                strokeDashoffset={-segment.offset * circumference}
+                strokeDashoffset={
+                  -segment.offset * circumference
+                }
                 className={`alert-distribution__segment alert-distribution__segment--${index}`}
                 transform="rotate(-90 50 50)"
               />
@@ -70,17 +113,19 @@ function AlertDistribution() {
         </div>
 
         <div className="alert-distribution__legend">
-          {alertDistributionData.map((item, index) => (
-            <div key={item.label}>
-              <span
-                className={`alert-distribution__legend-dot alert-distribution__legend-dot--${index}`}
-              />
+          {alertDistributionData.map(
+            (item, index) => (
+              <div key={item.label}>
+                <span
+                  className={`alert-distribution__legend-dot alert-distribution__legend-dot--${index}`}
+                />
 
-              <span>{item.label}</span>
+                <span>{item.label}</span>
 
-              <strong>{item.value}</strong>
-            </div>
-          ))}
+                <strong>{item.value}</strong>
+              </div>
+            ),
+          )}
         </div>
       </div>
     </section>
