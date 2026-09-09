@@ -15,3 +15,100 @@ The React Compiler is not enabled on this template because of its impact on dev 
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
+```bash
+frontend-telemetria/
+│
+├── public/
+│
+├── src/
+│   │
+│   ├── assets/
+│   │
+│   ├── components/
+│   │   │
+│   │   ├── layout/
+│   │   │   ├── Sidebar/
+│   │   │   │   ├── Sidebar.jsx
+│   │   │   │   └── Sidebar.css
+│   │   │   │
+│   │   │   └── Header/
+│   │   │       ├── Header.jsx
+│   │   │       └── Header.css
+│   │   │
+│   │   ├── dashboard/
+│   │   │   ├── StatCard/
+│   │   │   │   ├── StatCard.jsx
+│   │   │   │   └── StatCard.css
+│   │   │   │
+│   │   │   ├── FleetMap/
+│   │   │   │   ├── FleetMap.jsx
+│   │   │   │   └── FleetMap.css
+│   │   │   │
+│   │   │   ├── AlertList/
+│   │   │   │   ├── AlertList.jsx
+│   │   │   │   └── AlertList.css
+│   │   │   │
+│   │   │   ├── VehicleStatusTable/
+│   │   │   │   ├── VehicleStatusTable.jsx
+│   │   │   │   └── VehicleStatusTable.css
+│   │   │   │
+│   │   │   ├── SpeedChart/
+│   │   │   │   ├── SpeedChart.jsx
+│   │   │   │   └── SpeedChart.css
+│   │   │   │
+│   │   │   └── AlertDistribution/
+│   │   │       ├── AlertDistribution.jsx
+│   │   │       └── AlertDistribution.css
+│   │   │
+│   │   └── ui/
+│   │       ├── Badge/
+│   │       │   ├── Badge.jsx
+│   │       │   └── Badge.css
+│   │       │
+│   │       └── IconButton/
+│   │           ├── IconButton.jsx
+│   │           └── IconButton.css
+│   │
+│   ├── pages/
+│   │   └── Dashboard/
+│   │       ├── Dashboard.jsx
+│   │       └── Dashboard.css
+│   │
+│   ├── mocks/
+│   │   ├── vehicles.mock.js
+│   │   ├── alerts.mock.js
+│   │   └── dashboard.mock.js
+│   │
+│   ├── services/
+│   │   ├── vehicleService.js
+│   │   ├── telemetryService.js
+│   │   ├── alertService.js
+│   │   └── routeService.js
+│   │
+│   ├── hooks/
+│   │
+│   ├── types/
+│   │   ├── vehicle.js
+│   │   ├── alert.js
+│   │   └── telemetry.js
+│   │
+│   ├── utils/
+│   │
+│   ├── styles/
+│   │   ├── variables.css
+│   │   ├── reset.css
+│   │   └── global.css
+│   │
+│   ├── App.jsx
+│   ├── App.css
+│   └── main.jsx
+│
+├── .env.local
+├── .env.server
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+└── vite.config.js
+```

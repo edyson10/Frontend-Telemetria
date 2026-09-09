@@ -1,0 +1,122 @@
+.stat-card {
+  display: flex;
+  align-items: center;
+
+  gap: var(--spacing-4);
+
+  min-width: 0;
+  min-height: 108px;
+
+  padding: var(--spacing-5);
+
+  background-color: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+}
+
+/* ========================================
+   Icon
+   ======================================== */
+
+.stat-card__icon {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 56px;
+  height: 56px;
+
+  border-radius: var(--radius-full);
+}
+
+/* ========================================
+   Icon variants
+   ======================================== */
+
+.stat-card--primary .stat-card__icon {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.stat-card--danger .stat-card__icon {
+  background-color: var(--color-danger-light);
+  color: var(--color-danger);
+}
+
+.stat-card--purple .stat-card__icon {
+  background-color: #f0e8ff;
+  color: #7c3aed;
+}
+
+/* ========================================
+   Content
+   ======================================== */
+
+.stat-card__content {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.stat-card__title {
+  color: var(--color-text-secondary);
+
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+
+  line-height: 1.4;
+}
+
+.stat-card__value {
+  margin-top: 3px;
+
+  color: var(--color-text-primary);
+
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+
+  line-height: 1.1;
+}
+
+.stat-card__trend {
+  display: flex;
+  align-items: center;
+
+  gap: 3px;
+
+  margin-top: 4px;
+
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.stat-card__trend--up {
+  color: var(--color-success);
+}
+
+.stat-card__trend--down {
+  color: var(--color-danger);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 520px) {
+  .stat-card {
+    min-height: 96px;
+
+    padding: var(--spacing-4);
+  }
+
+  .stat-card__icon {
+    width: 48px;
+    height: 48px;
+  }
+}

@@ -1,0 +1,140 @@
+:root {
+  /* ================================
+     Brand
+     ================================ */
+
+  --color-primary: #146ee8;
+  --color-primary-dark: #0d4fa8;
+  --color-primary-light: #eaf3ff;
+
+  /* ================================
+     Backgrounds
+     ================================ */
+
+  --color-background: #f4f8fc;
+  --color-surface: #ffffff;
+  --color-surface-secondary: #f8fbff;
+
+  /* ================================
+     Sidebar
+     ================================ */
+
+  --color-sidebar: #12253d;
+  --color-sidebar-dark: #0d1c30;
+  --color-sidebar-hover: #1d3655;
+  --color-sidebar-active: #146ee8;
+
+  /* ================================
+     Text
+     ================================ */
+
+  --color-text-primary: #14233b;
+  --color-text-secondary: #536987;
+  --color-text-muted: #8190a5;
+  --color-text-inverse: #ffffff;
+
+  /* ================================
+     Status
+     ================================ */
+
+  --color-success: #16a765;
+  --color-success-light: #e9f9f0;
+
+  --color-danger: #ef3f3f;
+  --color-danger-light: #fff0f0;
+
+  --color-warning: #f5a400;
+  --color-warning-light: #fff7df;
+
+  --color-info: #176fe5;
+  --color-info-light: #eaf3ff;
+
+  --color-purple: #7c4dff;
+  --color-purple-light: #f0eaff;
+
+  /* ================================
+     Borders
+     ================================ */
+
+  --color-border: #e3ebf4;
+  --color-border-light: #edf2f7;
+
+  /* ================================
+     Typography
+     ================================ */
+
+  --font-family-base:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.8125rem;
+  --font-size-md: 0.875rem;
+  --font-size-lg: 1rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* ================================
+     Spacing
+     ================================ */
+
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+
+  /* ================================
+     Border radius
+     ================================ */
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.125rem;
+  --radius-full: 9999px;
+
+  /* ================================
+     Shadows
+     ================================ */
+
+  --shadow-sm: 0 1px 3px rgba(20, 35, 59, 0.06);
+
+  --shadow-md:
+    0 4px 12px rgba(20, 35, 59, 0.08);
+
+  --shadow-lg:
+    0 8px 24px rgba(20, 35, 59, 0.1);
+
+  /* ================================
+     Layout
+     ================================ */
+
+  --sidebar-width: 220px;
+  --header-height: 74px;
+
+  --content-max-width: 1600px;
+
+  /* ================================
+     Transitions
+     ================================ */
+
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+}

@@ -1,0 +1,67 @@
+.dashboard {
+  width: 100%;
+  padding: var(--spacing-6);
+}
+
+/* ========================================
+   Heading
+   ======================================== */
+
+.dashboard__heading {
+  margin-bottom: var(--spacing-4);
+}
+
+.dashboard__heading h1 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.02em;
+}
+
+/* ========================================
+   Statistics
+   ======================================== */
+
+.dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--spacing-4);
+  width: 100%;
+}
+
+/* ========================================
+   Monitoring
+   ======================================== */
+
+.dashboard__monitoring {
+  display: grid;
+
+  grid-template-columns: minmax(0, 1.6fr) minmax(340px, 0.8fr);
+
+  gap: var(--spacing-4);
+
+  margin-top: var(--spacing-4);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 1200px) {
+  .dashboard__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard__monitoring {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .dashboard {
+    padding: var(--spacing-4);
+  }
+
+  .dashboard__stats {
+    grid-template-columns: 1fr;
+  }
+}

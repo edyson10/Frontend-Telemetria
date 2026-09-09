@@ -1,0 +1,288 @@
+.map-panel {
+  min-width: 0;
+
+  padding: var(--spacing-5);
+
+  background-color: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+}
+
+/* ========================================
+   Header
+   ======================================== */
+
+.map-panel__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: var(--spacing-4);
+
+  margin-bottom: var(--spacing-4);
+}
+
+.map-panel__header h2 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.map-panel__header span {
+  display: block;
+
+  margin-top: var(--spacing-1);
+
+  color: var(--color-text-secondary);
+
+  font-size: var(--font-size-xs);
+}
+
+.map-panel__header .map-panel__update {
+  margin-top: 0;
+
+  white-space: nowrap;
+
+  color: var(--color-text-secondary);
+}
+
+/* ========================================
+   Map
+   ======================================== */
+
+.map-panel__map {
+  position: relative;
+
+  height: 330px;
+
+  overflow: hidden;
+
+  border-radius: var(--radius-md);
+
+  background-color: #dcefe3;
+
+  background-image:
+    linear-gradient(
+      25deg,
+      transparent 45%,
+      rgba(255, 255, 255, 0.8) 46%,
+      rgba(255, 255, 255, 0.8) 48%,
+      transparent 49%
+    ),
+    linear-gradient(
+      155deg,
+      transparent 45%,
+      rgba(255, 255, 255, 0.8) 46%,
+      rgba(255, 255, 255, 0.8) 48%,
+      transparent 49%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 48%,
+      rgba(180, 210, 190, 0.35) 49%,
+      rgba(180, 210, 190, 0.35) 51%,
+      transparent 52%
+    );
+
+  background-size:
+    180px 140px,
+    220px 180px,
+    110px 110px;
+}
+
+/* ========================================
+   Map controls
+   ======================================== */
+
+.map-panel__controls {
+  position: absolute;
+  top: var(--spacing-3);
+  left: var(--spacing-3);
+
+  display: flex;
+  flex-direction: column;
+
+  z-index: 3;
+
+  overflow: hidden;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.map-panel__controls button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  background-color: var(--color-surface);
+
+  border: 0;
+
+  color: var(--color-text-primary);
+
+  font-size: 22px;
+
+  cursor: pointer;
+}
+
+.map-panel__controls button + button {
+  border-top: 1px solid var(--color-border);
+}
+
+.map-panel__controls button:hover {
+  background-color: var(--color-surface-secondary);
+}
+
+/* ========================================
+   Location labels
+   ======================================== */
+
+.map-panel__location-label {
+  position: absolute;
+
+  color: #6c7c73;
+
+  font-size: 11px;
+  font-weight: var(--font-weight-medium);
+
+  letter-spacing: 0.04em;
+}
+
+.map-panel__location-label--usaquen {
+  top: 16%;
+  right: 16%;
+}
+
+.map-panel__location-label--chapinero {
+  top: 40%;
+  right: 30%;
+}
+
+.map-panel__location-label--teusaquillo {
+  top: 43%;
+  left: 35%;
+}
+
+.map-panel__location-label--kennedy {
+  bottom: 20%;
+  left: 17%;
+}
+
+.map-panel__city {
+  position: absolute;
+  right: 30%;
+  bottom: 18%;
+
+  color: #55645b;
+
+  font-size: 24px;
+  font-weight: var(--font-weight-medium);
+}
+
+/* ========================================
+   Vehicle markers
+   ======================================== */
+
+.map-panel__vehicle {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  transform: translate(-50%, -50%);
+
+  border: 3px solid var(--color-surface);
+  border-radius: var(--radius-full);
+
+  box-shadow: var(--shadow-md);
+
+  z-index: 2;
+}
+
+.map-panel__vehicle span {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.map-panel__vehicle--moving {
+  background-color: var(--color-success);
+}
+
+.map-panel__vehicle--stopped {
+  background-color: var(--color-danger);
+}
+
+.map-panel__vehicle--alert {
+  background-color: #f59e0b;
+}
+
+/* ========================================
+   Legend
+   ======================================== */
+
+.map-panel__legend {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-5);
+
+  margin-top: var(--spacing-4);
+}
+
+.map-panel__legend div {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+
+  color: var(--color-text-secondary);
+
+  font-size: var(--font-size-xs);
+}
+
+.map-panel__legend-dot {
+  width: 10px;
+  height: 10px;
+
+  border-radius: var(--radius-full);
+}
+
+.map-panel__legend-dot--moving {
+  background-color: var(--color-success);
+}
+
+.map-panel__legend-dot--stopped {
+  background-color: var(--color-danger);
+}
+
+.map-panel__legend-dot--alert {
+  background-color: #f59e0b;
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 768px) {
+  .map-panel__map {
+    height: 280px;
+  }
+
+  .map-panel__header {
+    flex-direction: column;
+  }
+
+  .map-panel__header .map-panel__update {
+    white-space: normal;
+  }
+}
