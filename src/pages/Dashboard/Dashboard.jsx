@@ -1,10 +1,14 @@
-import StatCard from '../../components/dashboard/StatCard/StatCard'
-import MapPanel from '../../components/dashboard/MapPanel/MapPanel'
-import RecentAlerts from '../../components/dashboard/RecentAlerts/RecentAlerts'
+import StatCard from "../../components/dashboard/StatCard/StatCard";
+import MapPanel from "../../components/dashboard/MapPanel/MapPanel";
+import RecentAlerts from "../../components/dashboard/RecentAlerts/RecentAlerts";
 
-import { dashboardStats } from '../../mocks/dashboard.mock'
+import VehicleStatus from "../../components/dashboard/VehicleStatus/VehicleStatus";
+import AverageSpeed from "../../components/dashboard/AverageSpeed/AverageSpeed";
+import AlertDistribution from "../../components/dashboard/AlertDistribution/AlertDistribution";
 
-import './Dashboard.css'
+import { dashboardStats } from "../../mocks/dashboard.mock";
+
+import "./Dashboard.css";
 
 function Dashboard() {
   return (
@@ -12,9 +16,7 @@ function Dashboard() {
       <div className="dashboard__heading">
         <div>
           <h1>¡Hola, Juan!</h1>
-          <p>
-            Monitorea tu flota en tiempo real
-          </p>
+          <p>Monitorea tu flota en tiempo real</p>
         </div>
       </div>
 
@@ -37,8 +39,16 @@ function Dashboard() {
         <RecentAlerts />
       </div>
 
+      <div className="dashboard__bottom">
+        <VehicleStatus />
+
+        <div className="dashboard__charts">
+          <AverageSpeed />
+          <AlertDistribution />
+        </div>
+      </div>
     </section>
-  )
+  );
 }
 
-export default Dashboard
+export default Dashboard;

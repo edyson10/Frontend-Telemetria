@@ -111,3 +111,75 @@ export const recentAlerts = [
     time: '14:20',
   },
 ]
+
+export const vehicleStatusData = [
+  {
+    id: 'VH-ALERT-001',
+    status: 'MOVING',
+    location: 'Chapinero',
+    speed: 85,
+    battery: 85,
+  },
+  {
+    id: 'VH-STOP-002',
+    status: 'STOPPED',
+    location: 'Usaquén',
+    speed: 0,
+    battery: 60,
+  },
+  {
+    id: 'VH-ALERT-003',
+    status: 'MOVING',
+    location: 'Teusaquillo',
+    speed: 72,
+    battery: 90,
+  },
+  {
+    id: 'VH-004',
+    status: 'MOVING',
+    location: 'Kennedy',
+    speed: 65,
+    battery: 75,
+  },
+  {
+    id: 'VH-005',
+    status: 'STOPPED',
+    location: 'Fontibón',
+    speed: 0,
+    battery: 50,
+  },
+]
+
+export const averageSpeedData = [
+  { time: '00:00', value: 48 },
+  { time: '02:00', value: 52 },
+  { time: '04:00', value: 61 },
+  { time: '06:00', value: 58 },
+  { time: '08:00', value: 72 },
+  { time: '10:00', value: 68 },
+  { time: '12:00', value: 92 },
+  { time: '14:00', value: 85 },
+  { time: '16:00', value: 76 },
+  { time: '18:00', value: 64 },
+  { time: '20:00', value: 61 },
+  { time: '22:00', value: 63 },
+]
+
+export const alertDistributionData = [
+  {
+    label: 'Exceso de velocidad',
+    value: 8,
+  },
+  {
+    label: 'Vehículo detenido',
+    value: 5,
+  },
+  {
+    label: 'Fuera de ruta',
+    value: 3,
+  },
+  {
+    label: 'Otros',
+    value: 2,
+  },
+]

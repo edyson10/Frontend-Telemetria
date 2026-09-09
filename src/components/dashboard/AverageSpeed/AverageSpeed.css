@@ -1,0 +1,181 @@
+.average-speed {
+  padding: var(--spacing-5);
+
+  background-color: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.average-speed__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  margin-bottom: var(--spacing-4);
+}
+
+.average-speed__header h2 {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+}
+
+.average-speed__header span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: var(--color-text-secondary);
+
+  font-size: var(--font-size-xs);
+}
+
+.average-speed__header select {
+  padding: var(--spacing-2) var(--spacing-3);
+
+  background-color: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  color: var(--color-text-secondary);
+
+  font-size: var(--font-size-xs);
+
+  outline: none;
+}
+
+/* ========================================
+   Chart
+   ======================================== */
+
+.average-speed__chart {
+  position: relative;
+
+  height: 220px;
+
+  padding-left: 34px;
+  padding-bottom: 28px;
+}
+
+.average-speed__y-axis {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 28px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-size: 10px;
+}
+
+.average-speed__graph {
+  position: relative;
+
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.average-speed__grid-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  border-top: 1px dashed var(--color-border);
+}
+
+.average-speed__grid-line--120 {
+  top: 0;
+}
+
+.average-speed__grid-line--90 {
+  top: 25%;
+}
+
+.average-speed__grid-line--60 {
+  top: 50%;
+}
+
+.average-speed__grid-line--30 {
+  top: 75%;
+}
+
+.average-speed__grid-line--0 {
+  top: 100%;
+}
+
+/* ========================================
+   SVG
+   ======================================== */
+
+.average-speed__svg {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  color: var(--color-primary);
+
+  overflow: visible;
+}
+
+/* ========================================
+   Highlight
+   ======================================== */
+
+.average-speed__highlight {
+  position: absolute;
+  top: 15%;
+  left: 66%;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: var(--spacing-2);
+
+  background-color: var(--color-text-primary);
+
+  border-radius: var(--radius-sm);
+
+  color: var(--color-text-inverse);
+
+  font-size: 10px;
+
+  box-shadow: var(--shadow-sm);
+}
+
+.average-speed__highlight strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+.average-speed__highlight span {
+  margin-top: 2px;
+
+  opacity: 0.75;
+}
+
+/* ========================================
+   X axis
+   ======================================== */
+
+.average-speed__x-axis {
+  position: absolute;
+  left: 34px;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-size: 10px;
+}

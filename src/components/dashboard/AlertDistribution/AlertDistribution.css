@@ -1,0 +1,158 @@
+.alert-distribution {
+  padding: var(--spacing-5);
+
+  background-color: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.alert-distribution__header {
+  margin-bottom: var(--spacing-4);
+}
+
+.alert-distribution__header h2 {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ========================================
+   Content
+   ======================================== */
+
+.alert-distribution__content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-5);
+}
+
+/* ========================================
+   Chart
+   ======================================== */
+
+.alert-distribution__chart {
+  position: relative;
+
+  flex-shrink: 0;
+
+  width: 150px;
+  height: 150px;
+}
+
+.alert-distribution__chart svg {
+  width: 100%;
+  height: 100%;
+
+  transform: rotate(0deg);
+}
+
+.alert-distribution__background {
+  color: var(--color-border-light);
+}
+
+.alert-distribution__segment {
+  transition: opacity var(--transition-fast);
+}
+
+.alert-distribution__segment--0 {
+  color: var(--color-danger);
+}
+
+.alert-distribution__segment--1 {
+  color: #f59e0b;
+}
+
+.alert-distribution__segment--2 {
+  color: var(--color-primary);
+}
+
+.alert-distribution__segment--3 {
+  color: #94a3b8;
+}
+
+/* ========================================
+   Total
+   ======================================== */
+
+.alert-distribution__total {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert-distribution__total strong {
+  color: var(--color-text-primary);
+
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+.alert-distribution__total span {
+  margin-top: 2px;
+
+  color: var(--color-text-secondary);
+
+  font-size: var(--font-size-xs);
+}
+
+/* ========================================
+   Legend
+   ======================================== */
+
+.alert-distribution__legend {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  gap: var(--spacing-3);
+}
+
+.alert-distribution__legend div {
+  display: grid;
+
+  grid-template-columns: 10px minmax(0, 1fr) auto;
+
+  align-items: center;
+
+  gap: var(--spacing-2);
+
+  color: var(--color-text-secondary);
+
+  font-size: var(--font-size-xs);
+}
+
+.alert-distribution__legend strong {
+  color: var(--color-text-primary);
+
+  font-weight: var(--font-weight-medium);
+}
+
+.alert-distribution__legend-dot {
+  width: 9px;
+  height: 9px;
+
+  border-radius: var(--radius-full);
+}
+
+.alert-distribution__legend-dot--0 {
+  background-color: var(--color-danger);
+}
+
+.alert-distribution__legend-dot--1 {
+  background-color: #f59e0b;
+}
+
+.alert-distribution__legend-dot--2 {
+  background-color: var(--color-primary);
+}
+
+.alert-distribution__legend-dot--3 {
+  background-color: #94a3b8;
+}

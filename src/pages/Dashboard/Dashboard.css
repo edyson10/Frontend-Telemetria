@@ -43,6 +43,28 @@
 }
 
 /* ========================================
+   Bottom section
+   ======================================== */
+
+.dashboard__bottom {
+  display: grid;
+
+  grid-template-columns: minmax(0, 1.6fr) minmax(340px, 0.8fr);
+
+  gap: var(--spacing-4);
+
+  margin-top: var(--spacing-4);
+}
+
+.dashboard__charts {
+  display: grid;
+
+  grid-template-rows: 1fr 1fr;
+
+  gap: var(--spacing-4);
+}
+
+/* ========================================
    Responsive
    ======================================== */
 
@@ -54,6 +76,21 @@
   .dashboard__monitoring {
     grid-template-columns: 1fr;
   }
+
+  .dashboard__bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard__charts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard__charts {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 520px) {
@@ -62,6 +99,54 @@
   }
 
   .dashboard__stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   Tablet
+   ======================================== */
+
+@media (max-width: 900px) {
+  .dashboard {
+    padding: var(--spacing-5);
+  }
+
+  .dashboard__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard__charts {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   Small screens
+   ======================================== */
+
+@media (max-width: 600px) {
+  .dashboard {
+    padding: var(--spacing-4);
+  }
+
+  .dashboard__heading h1 {
+    font-size: var(--font-size-xl);
+  }
+
+  .dashboard__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard__monitoring {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard__bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard__charts {
     grid-template-columns: 1fr;
   }
 }
