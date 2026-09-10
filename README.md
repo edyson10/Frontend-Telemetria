@@ -15,7 +15,13 @@ The React Compiler is not enabled on this template because of its impact on dev 
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
-```bash
+Para probar con el siguiente comando
+
+```powershell
+npm run dev
+```
+
+```powershell
 frontend-telemetria/
 │
 ├── public/
@@ -35,40 +41,30 @@ frontend-telemetria/
 │   │   │       ├── Header.jsx
 │   │   │       └── Header.css
 │   │   │
-│   │   ├── dashboard/
-│   │   │   ├── StatCard/
-│   │   │   │   ├── StatCard.jsx
-│   │   │   │   └── StatCard.css
-│   │   │   │
-│   │   │   ├── FleetMap/
-│   │   │   │   ├── FleetMap.jsx
-│   │   │   │   └── FleetMap.css
-│   │   │   │
-│   │   │   ├── AlertList/
-│   │   │   │   ├── AlertList.jsx
-│   │   │   │   └── AlertList.css
-│   │   │   │
-│   │   │   ├── VehicleStatusTable/
-│   │   │   │   ├── VehicleStatusTable.jsx
-│   │   │   │   └── VehicleStatusTable.css
-│   │   │   │
-│   │   │   ├── SpeedChart/
-│   │   │   │   ├── SpeedChart.jsx
-│   │   │   │   └── SpeedChart.css
-│   │   │   │
-│   │   │   └── AlertDistribution/
-│   │   │       ├── AlertDistribution.jsx
-│   │   │       └── AlertDistribution.css
-│   │   │
-│   │   └── ui/
-│   │       ├── Badge/
-│   │       │   ├── Badge.jsx
-│   │       │   └── Badge.css
+│   │   └── dashboard/
+│   │       ├── StatCard/
+│   │       │   ├── StatCard.jsx
+│   │       │   └── StatCard.css
 │   │       │
-│   │       └── IconButton/
-│   │           ├── IconButton.jsx
-│   │           └── IconButton.css
-│   │
+│   │       ├── FleetMap/
+│   │       │   ├── FleetMap.jsx
+│   │       │   └── FleetMap.css
+│   │       │
+│   │       ├── AlertList/
+│   │       │   ├── AlertList.jsx
+│   │       │   └── AlertList.css
+│   │       │
+│   │       ├── VehicleStatusTable/
+│   │       │   ├── VehicleStatusTable.jsx
+│   │       │   └── VehicleStatusTable.css
+│   │       │
+│   │       ├── SpeedChart/
+│   │       │   ├── SpeedChart.jsx
+│   │       │   └── SpeedChart.css
+│   │       │
+│   │       └── AlertDistribution/
+│   │           ├── AlertDistribution.jsx
+│   │           └── AlertDistribution.css
 │   ├── pages/
 │   │   └── Dashboard/
 │   │       ├── Dashboard.jsx
@@ -78,22 +74,16 @@ frontend-telemetria/
 │   │   ├── vehicles.mock.js
 │   │   ├── alerts.mock.js
 │   │   └── dashboard.mock.js
-│   │
 │   ├── services/
 │   │   ├── vehicleService.js
 │   │   ├── telemetryService.js
 │   │   ├── alertService.js
 │   │   └── routeService.js
-│   │
-│   ├── hooks/
-│   │
-│   ├── types/
+│   ├── models/
 │   │   ├── vehicle.js
 │   │   ├── alert.js
+│   │   ├── route.js
 │   │   └── telemetry.js
-│   │
-│   ├── utils/
-│   │
 │   ├── styles/
 │   │   ├── variables.css
 │   │   ├── reset.css
