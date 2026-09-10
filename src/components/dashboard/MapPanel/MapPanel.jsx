@@ -1,8 +1,50 @@
-import { dashboardVehicles } from '../../../mocks/dashboard.mock'
-
 import './MapPanel.css'
 
-function MapPanel() {
+function getVehiclePosition(vehicle, index) {
+  /*
+   * El mapa actual es una representación visual del área.
+   * Convertimos las coordenadas reales a una posición dentro
+   * del área visual del mapa.
+   *
+   * El padding evita que el marcador quede pegado a los bordes.
+   */
+  const mapBounds = {
+    minLat: 4.45,
+    maxLat: 6.35,
+    minLng: -75.75,
+    maxLng: -73.95,
+  }
+
+  const latitude = Number(vehicle.latitude)
+  const longitude = Number(vehicle.longitude)
+
+  if (
+    Number.isNaN(latitude) ||
+    Number.isNaN(longitude)
+  ) {
+    return {
+      left: `${20 + index * 20}%`,
+      top: `${30 + (index % 2) * 30}%`,
+    }
+  }
+
+  const longitudePercentage =
+    ((longitude - mapBounds.minLng) /
+      (mapBounds.maxLng - mapBounds.minLng)) *
+    100
+
+  const latitudePercentage =
+    ((mapBounds.maxLat - latitude) /
+      (mapBounds.maxLat - mapBounds.minLat)) *
+    100
+
+  return {
+    left: `${Math.min(Math.max(longitudePercentage, 5), 95)}%`,
+    top: `${Math.min(Math.max(latitudePercentage, 5), 95)}%`,
+  }
+}
+
+function MapPanel({ vehicles = [] }) {
   return (
     <section className="map-panel">
       <div className="map-panel__header">
@@ -12,7 +54,7 @@ function MapPanel() {
         </div>
 
         <span className="map-panel__update">
-          Última actualización: hace 10 segundos
+          Última actualización: hace unos segundos
         </span>
       </div>
 
@@ -47,15 +89,14 @@ function MapPanel() {
           Bogotá
         </div>
 
-        {dashboardVehicles.map((vehicle, index) => (
+        {vehicles.map((vehicle) => (
           <div
-            key={vehicle.id}
-            className={`map-panel__vehicle map-panel__vehicle--${vehicle.status.toLowerCase()}`}
-            style={{
-              left: `${20 + index * 20}%`,
-              top: `${30 + (index % 2) * 30}%`,
-            }}
-            title={vehicle.id}
+            key={vehicle.vehicleId}
+            className={`map-panel__vehicle map-panel__vehicle--${(
+              vehicle.status || 'MOVING'
+            ).toLowerCase()}`}
+            style={getVehiclePosition(vehicle)}
+            title={`${vehicle.vehicleId} - ${vehicle.latitude}, ${vehicle.longitude}`}
           >
             <span>🚗</span>
           </div>

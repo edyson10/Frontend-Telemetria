@@ -1,24 +1,56 @@
-import { recentAlerts } from '../../../mocks/dashboard.mock'
-
 import './RecentAlerts.css'
 
-function getAlertIcon(type) {
+function getAlertPresentation(type) {
   switch (type) {
-    case 'SPEED':
-      return '⚠'
+    case 'VEHICLE_STOPPED':
+      return {
+        icon: 'Ⅱ',
+        cssType: 'stopped',
+      }
 
-    case 'STOPPED':
-      return 'Ⅱ'
+    case 'SPEED':
+      return {
+        icon: '⚠',
+        cssType: 'speed',
+      }
 
     case 'ROUTE':
-      return '⌁'
+      return {
+        icon: '⌁',
+        cssType: 'route',
+      }
 
     default:
-      return '!'
+      return {
+        icon: '!',
+        cssType: 'default',
+      }
   }
 }
 
-function RecentAlerts() {
+function formatAlertTime(timestamp) {
+  if (!timestamp) {
+    return '—'
+  }
+
+  const date = new Date(timestamp)
+
+  if (Number.isNaN(date.getTime())) {
+    return '—'
+  }
+
+  return date.toLocaleTimeString('es-CO', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  })
+}
+
+function RecentAlerts({
+  alerts = [],
+  loading = false,
+  error = null,
+}) {
   return (
     <section className="recent-alerts">
       <div className="recent-alerts__header">
@@ -31,31 +63,54 @@ function RecentAlerts() {
       </div>
 
       <div className="recent-alerts__list">
-        {recentAlerts.map((alert) => (
-          <article
-            key={alert.id}
-            className={`recent-alert recent-alert--${alert.type.toLowerCase()}`}
-          >
-            <div className="recent-alert__icon">
-              {getAlertIcon(alert.type)}
-            </div>
+        {loading && (
+          <p>Cargando alertas...</p>
+        )}
 
-            <div className="recent-alert__content">
-              <div className="recent-alert__title">
-                {alert.title}
-              </div>
+        {!loading && error && (
+          <p>No fue posible cargar las alertas.</p>
+        )}
 
-              <div className="recent-alert__vehicle">
-                {alert.vehicleId}
-              </div>
-            </div>
+        {!loading && !error && alerts.length === 0 && (
+          <p>No hay alertas recientes.</p>
+        )}
 
-            <div className="recent-alert__information">
-              <span>{alert.time}</span>
-              <strong>{alert.value}</strong>
-            </div>
-          </article>
-        ))}
+        {!loading &&
+          !error &&
+          alerts.map((alert, index) => {
+            const presentation = getAlertPresentation(alert.type)
+
+            return (
+              <article
+                key={`${alert.vehicleId}-${alert.timestamp}-${index}`}
+                className={`recent-alert recent-alert--${presentation.cssType}`}
+              >
+                <div className="recent-alert__icon">
+                  {presentation.icon}
+                </div>
+
+                <div className="recent-alert__content">
+                  <div className="recent-alert__title">
+                    {alert.message}
+                  </div>
+
+                  <div className="recent-alert__vehicle">
+                    {alert.vehicleId}
+                  </div>
+                </div>
+
+                <div className="recent-alert__information">
+                  <span>
+                    {formatAlertTime(alert.timestamp)}
+                  </span>
+
+                  <strong>
+                    —
+                  </strong>
+                </div>
+              </article>
+            )
+          })}
       </div>
     </section>
   )
